@@ -1,7 +1,7 @@
 from playwright.async_api import Page
 
 class InvalidPassword:
-    def __init__(self, page: Page):
+    def __init__(self, page):
         self.page = page
         self.login_button = page.locator("//button[text()='Login']")
         self.username_textbox = page.locator("//input[@id='username']")

@@ -1,3 +1,5 @@
+import time
+
 from playwright.async_api import Page
 
 class SuccessLogin:
@@ -10,10 +12,6 @@ class SuccessLogin:
         self.logout_button = page.locator("//i[contains(text(),'Logout')]")
 
 
-    async def open_browser_success_login(self):
-        await self.page.goto("https://practice.expandtesting.com/login")
-        await self.login_button.wait_for(state="visible")
-
     async def cre_success_login(self):
         await self.username_textbox.fill("practice")
         await self.password_textbox.fill("SuperSecretPassword!")
@@ -21,6 +19,7 @@ class SuccessLogin:
 
     async def logout_sl(self):
         await self.logout_button.click()
+
 
 
 

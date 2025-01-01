@@ -9,10 +9,9 @@ async def test_invalid_password():
         browser = await p.chromium.launch(headless=False)  # Launch browser
         context = await browser.new_context()  # Create a new context (similar to a browser profile)
         page = await context.new_page()
+        await  page.goto("https://practice.expandtesting.com/login")
 
         pwd_obj = InvalidPassword(page)
-
-        await pwd_obj.open_browser_invalid_password()
         await pwd_obj.invalid_password()
 
         await expect(pwd_obj.invalid_msg).to_have_text("Your password is invalid!")

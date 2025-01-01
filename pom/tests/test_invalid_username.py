@@ -9,10 +9,9 @@ async def test_invalid_username():
         browser = await p.chromium.launch(headless=False)  # Launch browser
         context = await browser.new_context()  # Create a new context (similar to a browser profile)
         page = await context.new_page()
+        await  page.goto("https://practice.expandtesting.com/login")
 
         invalid_uname_obj = InvalidUserName(page)
-
-        await invalid_uname_obj.open_browser_invalid_user()
         await invalid_uname_obj.invalid_username()
 
         await expect(invalid_uname_obj.invalid_msg).to_have_text("Your username is invalid!")

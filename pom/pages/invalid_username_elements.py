@@ -11,9 +11,6 @@ class InvalidUserName:
         self.invalid_msg = page.locator("//b[contains(text(),'invalid!')]")
 
 
-    async def open_browser_invalid_user(self):
-        await self.page.goto("https://practice.expandtesting.com/login")
-        await self.login_button.wait_for(state="visible")
 
     async def invalid_username(self):
         await self.username_textbox.fill("wrongUser")

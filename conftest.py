@@ -8,8 +8,10 @@ async def browser_setup():
         browser = await p.chromium.launch(headless=False)
         context = await browser.new_context()
         page = await context.new_page()
-        await page.goto("https://practice.expandtesting.com/login")
+        await page.set_viewport_size({"width": 1920, "height": 1080})
+        base_url = "https://practice.expandtesting.com/login"
+        await page.goto(base_url)
         await page.wait_for_load_state("domcontentloaded")
-        yield page
+        yield page, base_url
         await context.close()
 
